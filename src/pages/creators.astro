@@ -1,0 +1,214 @@
+---
+import "../styles/global.css";
+
+const followers = ["Under 1,000", "1,000–5,000", "5,000–10,000", "10,000–50,000", "50,000–100,000", "100,000+"];
+const contentTypes = ["Lifestyle", "Beauty or fashion", "Entertainment or comedy", "Educational", "Product reviews", "Technology", "Fitness or wellness", "Other"];
+const opportunities = ["Paid UGC", "Sponsored posts", "Product gifting", "Affiliate earnings", "Long-term creator partnership"];
+const weeklyVideos = ["1–2", "3–4", "5–7", "It depends on the campaign"];
+const cameraOptions = ["Yes", "Sometimes", "I prefer faceless content"];
+const title = "Create with Becky | Creator Program";
+const description = "Apply to create paid UGC, sponsored posts, and original fitness content with Becky.";
+const canonical = new URL("/creators", Astro.site);
+const socialImage = new URL("/og.png", Astro.site);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" href="/favicon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:image" content={socialImage} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={socialImage} />
+  </head>
+  <body>
+    <main>
+      <header class="site-header">
+        <a class="brand" href="#top" aria-label="Becky home">becky<span>.</span></a>
+        <a class="nav-cta" href="#apply">Apply now <span aria-hidden="true">↗</span></a>
+      </header>
+
+      <section class="hero" id="top">
+        <div class="eyebrow"><span class="status-dot"></span> Creator program · applications open</div>
+        <h1>Make something<br /><em>people feel.</em></h1>
+        <p class="hero-copy">Create honest, energetic fitness content with Becky—and get paid for your point of view.</p>
+        <a class="primary-button" href="#apply">Become a Becky creator <span aria-hidden="true">→</span></a>
+        <div class="scribble scribble-one" aria-hidden="true">★</div>
+        <div class="scribble scribble-two" aria-hidden="true">☺</div>
+      </section>
+
+      <section class="video-section" aria-labelledby="how-it-works">
+        <div class="section-label">01 / START HERE</div>
+        <div class="video-grid">
+          <div>
+            <h2 id="how-it-works">See how it <em>works.</em></h2>
+            <p>Watch Becky explain the creator program, what we look for, and what happens after you apply.</p>
+          </div>
+          <button class="video-card" id="open-video" type="button" aria-label="Play creator program introduction video">
+            <span class="video-tag">QUICK WATCH</span>
+            <span class="video-art" aria-hidden="true"><span>▶</span></span>
+            <span class="video-caption">A quick hello from Becky</span>
+            <span class="video-time">02:04</span>
+          </button>
+        </div>
+      </section>
+
+      <div class="video-modal" id="video-modal" role="dialog" aria-modal="true" aria-labelledby="video-title" hidden>
+        <div class="modal-panel">
+          <button class="modal-close" id="close-video" type="button" aria-label="Close video">×</button>
+          <div class="video-placeholder">
+            <span class="placeholder-play">▶</span>
+            <h3 id="video-title">Your VSL goes here</h3>
+            <p>Replace this block with Becky’s YouTube, Vimeo, or hosted video embed.</p>
+          </div>
+        </div>
+      </div>
+
+      <section class="program-section" aria-labelledby="program-title">
+        <div class="section-label">02 / THE PROGRAM</div>
+        <div class="program-heading">
+          <h2 id="program-title">Your ideas.<br />Your voice.<br /><em>Our next campaign.</em></h2>
+          <p>You don’t need a massive following. You need a clear point of view, an instinct for what people watch, and the energy to make it yours.</p>
+        </div>
+        <div class="benefit-grid">
+          <article class="benefit-card yellow-card"><span>01</span><h3>Get paid to create</h3><p>Campaign-specific rates based on the brief, deliverables, experience, and usage.</p></article>
+          <article class="benefit-card blue-card"><span>02</span><h3>Grow with Becky</h3><p>From a first UGC brief to longer partnerships when the chemistry is right.</p></article>
+          <article class="benefit-card pink-card"><span>03</span><h3>Keep your voice</h3><p>We bring the direction. You bring the personality that makes the idea worth watching.</p></article>
+        </div>
+      </section>
+
+      <section class="application-section" id="apply" aria-labelledby="application-title">
+        <div class="application-intro">
+          <div class="section-label">03 / YOUR APPLICATION</div>
+          <h2 id="application-title">Let’s make<br /><em>something good.</em></h2>
+          <p>Tell us a little about you and the content you love making. This should take less than three minutes.</p>
+          <div class="time-note"><span>~3</span><small>minutes<br />to apply</small></div>
+        </div>
+
+        <div class="form-shell">
+          <form id="creator-form">
+            <div class="form-field">
+              <span class="field-title"><span class="field-number">01</span><span class="question-text">What’s your full name?</span></span>
+              <input name="fullName" type="text" placeholder="Your name" autocomplete="name" aria-label="What’s your full name?" required />
+            </div>
+            <div class="two-up">
+              <div class="form-field">
+                <span class="field-title"><span class="field-number">02</span><span class="question-text">What’s your email address?</span></span>
+                <input name="email" type="email" placeholder="you@email.com" autocomplete="email" aria-label="What’s your email address?" required />
+              </div>
+              <div class="form-field">
+                <span class="field-title"><span class="field-number">03</span><span class="question-text">What’s your phone number?</span><span class="optional">Optional</span></span>
+                <input name="phone" type="tel" placeholder="+353 00 000 0000" autocomplete="tel" aria-label="What’s your phone number?" />
+              </div>
+            </div>
+            <div class="two-up">
+              <div class="form-field">
+                <span class="field-title"><span class="field-number">04</span><span class="question-text">Where are you based?</span></span>
+                <input name="location" type="text" placeholder="City, country" autocomplete="address-level2" aria-label="Where are you based?" required />
+              </div>
+              <fieldset class="form-field compact-options">
+                <legend><span class="field-title"><span class="field-number">05</span><span class="question-text">Are you currently a student?</span></span></legend>
+                <select name="studentStatus" aria-label="Are you currently a student?" required>
+                  <option value="" selected disabled>Choose one</option>
+                  <option>High school</option><option>Undergraduate</option><option>Graduate</option><option>Not a student</option><option>Other</option>
+                </select>
+              </fieldset>
+            </div>
+            <div class="form-field">
+              <span class="field-title"><span class="field-number">06</span><span class="question-text">Share your TikTok and/or Instagram profile links.</span></span>
+              <input name="socialProfiles" type="text" placeholder="https://tiktok.com/@yourhandle" aria-label="TikTok and Instagram profile links" required />
+            </div>
+            <fieldset class="form-field">
+              <legend><span class="field-title"><span class="field-number">07</span><span class="question-text">What is your approximate follower count on your main platform?</span></span></legend>
+              <div class="choice-grid choice-grid-3">{followers.map((value) => <label class="choice"><input type="radio" name="followers" value={value} required /><span>{value}</span></label>)}</div>
+            </fieldset>
+            <fieldset class="form-field">
+              <legend><span class="field-title"><span class="field-number">08</span><span class="question-text">What type of content do you create?</span></span></legend>
+              <p class="field-help">Select all that apply.</p>
+              <div class="choice-grid choice-grid-2">{contentTypes.map((value) => <label class="choice checkbox"><input type="checkbox" name="contentTypes" value={value} /><span>{value}</span></label>)}</div>
+            </fieldset>
+            <div class="form-field">
+              <span class="field-title"><span class="field-number">09</span><span class="question-text">Share a link to your best or most-viewed video.</span></span>
+              <input name="bestVideo" type="url" placeholder="https://" aria-label="Link to your best or most-viewed video" required />
+            </div>
+            <div class="form-field">
+              <span class="field-title"><span class="field-number">10</span><span class="question-text">Why do you want to create content for Becky?</span></span>
+              <textarea name="whyBecky" rows="3" placeholder="One or two sentences is perfect." aria-label="Why do you want to create content for Becky?" required></textarea>
+            </div>
+            <div class="form-field">
+              <span class="field-title"><span class="field-number">11</span><span class="question-text">What type of Becky video do you think could perform well?</span></span>
+              <textarea name="pitch" rows="4" placeholder="Briefly pitch one idea." aria-label="Pitch a Becky video idea" required></textarea>
+            </div>
+            <fieldset class="form-field">
+              <legend><span class="field-title"><span class="field-number">12</span><span class="question-text">Which opportunities interest you?</span></span></legend>
+              <p class="field-help">Select all that apply.</p>
+              <div class="choice-grid choice-grid-2">{opportunities.map((value) => <label class="choice checkbox"><input type="checkbox" name="opportunities" value={value} /><span>{value}</span></label>)}</div>
+            </fieldset>
+            <fieldset class="form-field">
+              <legend><span class="field-title"><span class="field-number">13</span><span class="question-text">How many videos could you create each week?</span></span></legend>
+              <div class="choice-grid choice-grid-2">{weeklyVideos.map((value) => <label class="choice"><input type="radio" name="weeklyVideos" value={value} required /><span>{value}</span></label>)}</div>
+            </fieldset>
+            <fieldset class="form-field">
+              <legend><span class="field-title"><span class="field-number">14</span><span class="question-text">Are you comfortable appearing and speaking on camera?</span></span></legend>
+              <div class="choice-grid choice-grid-3">{cameraOptions.map((value) => <label class="choice"><input type="radio" name="onCamera" value={value} required /><span>{value}</span></label>)}</div>
+            </fieldset>
+            <div class="form-field">
+              <span class="field-title"><span class="field-number">15</span><span class="question-text">How did you hear about Becky’s Creator Program?</span><span class="optional">Optional</span></span>
+              <input name="referral" type="text" placeholder="TikTok, a friend, Google…" aria-label="How did you hear about Becky’s Creator Program?" />
+            </div>
+
+            <div class="compensation-note">
+              <span aria-hidden="true">✦</span>
+              <div>
+                <h3>About compensation</h3>
+                <p>Compensation is determined for each creator and campaign. We consider audience size, engagement, content quality, experience, deliverables, performance potential, and content usage.</p>
+                <p>Submitting does not guarantee selection. If your profile matches an upcoming campaign, we’ll contact you with the details, requirements, and proposed compensation before you agree to participate.</p>
+              </div>
+            </div>
+            <button class="submit-button" type="submit"><span>Apply to Create with Becky</span><span aria-hidden="true">↗</span></button>
+            <p class="privacy-note">By applying, you agree that Becky may contact you about creator opportunities.</p>
+          </form>
+
+          <div class="success-state" id="application-success" role="status" hidden>
+            <span class="success-mark">✓</span><p class="mini-label">APPLICATION SENT</p><h3>You’re on our radar.</h3>
+            <p>Thanks for wanting to create with Becky. If you’re a fit for an upcoming campaign, our team will be in touch.</p>
+            <button id="edit-response" type="button">Edit response</button>
+          </div>
+        </div>
+      </section>
+
+      <footer>
+        <a class="brand footer-brand" href="#top">becky<span>.</span></a><p>Movement for real life.</p>
+        <a href="mailto:creators@becky.fit">creators@becky.fit</a><span>© 2026 Becky</span>
+      </footer>
+    </main>
+
+    <script>
+      const modal = document.querySelector<HTMLDivElement>("#video-modal");
+      const openVideo = document.querySelector<HTMLButtonElement>("#open-video");
+      const closeVideo = document.querySelector<HTMLButtonElement>("#close-video");
+      const form = document.querySelector<HTMLFormElement>("#creator-form");
+      const success = document.querySelector<HTMLDivElement>("#application-success");
+      const editResponse = document.querySelector<HTMLButtonElement>("#edit-response");
+      const showVideo = () => { if (modal) { modal.hidden = false; document.body.classList.add("modal-open"); closeVideo?.focus(); } };
+      const hideVideo = () => { if (modal) { modal.hidden = true; document.body.classList.remove("modal-open"); openVideo?.focus(); } };
+      openVideo?.addEventListener("click", showVideo);
+      closeVideo?.addEventListener("click", hideVideo);
+      modal?.addEventListener("click", (event) => { if (event.target === modal) hideVideo(); });
+      window.addEventListener("keydown", (event) => { if (event.key === "Escape" && modal && !modal.hidden) hideVideo(); });
+      form?.addEventListener("submit", (event) => { event.preventDefault(); form.hidden = true; if (success) { success.hidden = false; success.scrollIntoView({ behavior: "smooth", block: "center" }); } });
+      editResponse?.addEventListener("click", () => { if (success) success.hidden = true; if (form) { form.hidden = false; form.scrollIntoView({ behavior: "smooth", block: "start" }); } });
+    </script>
+  </body>
+</html>
